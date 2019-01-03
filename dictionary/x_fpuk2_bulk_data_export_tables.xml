@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Export Tables" max_length="40" name="x_fpuk2_bulk_data_export_tables" type="collection">
+        <element label="Audit records found" max_length="40" name="audit_records_found" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Display Name" max_length="100" name="display_name" type="string"/>
+        <element label="Email records found" max_length="40" name="email_records_found" type="integer"/>
+        <element label="Journal records found" max_length="40" name="journal_records_found" type="integer"/>
+        <element label="Parent" max_length="32" name="parent" reference="x_fpuk2_bulk_data_export_configuration" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="State" max_length="40" name="state" type="string">
+            <choice>
+                <element label="Started" sequence="0" value="Started"/>
+                <element label="Finished" sequence="1" value="Finished"/>
+            </choice>
+        </element>
+        <element label="Table" max_length="32" name="table" reference="sys_db_object" type="reference"/>
+        <index name="index">
+            <element name="parent"/>
+        </index>
+        <index name="index2">
+            <element name="table"/>
+        </index>
+    </element>
+</database>

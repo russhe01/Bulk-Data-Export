@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_fpuk2_bulk_data.bulkExportHelper</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>bulkExportHelper</name>
+        <script><![CDATA[var bulkExportHelper = Class.create();
+bulkExportHelper.prototype = {
+    initialize: function() {
+
+    },
+ 
+	createExportTables: function(config) {
+		
+		var tables = config.tables.split(",");
+		var tableLength = tables.length;
+
+		if(tableLength != 0){
+			for(var i = 0; i < tableLength; i++){
+			var grCreate = new GlideRecord('x_fpuk2_bulk_data_export_tables');
+		        grCreate.initialize();
+				grCreate.setValue('parent', config.sys_id);
+				grCreate.setValue('table', tables[i]);
+				grCreate.setValue('display_name', config.domain.getDisplayValue() + " " + grCreate.table.getDisplayValue());
+				grCreate.insert();
+		}
+		}
+	},
+	
+	queryRecords: function(config) {
+		
+		var emails = config.emails;
+		var audit = config.audit;
+		var journal = config.journal_entries;
+		
+		var queryRec = new GlideRecord('x_fpuk2_bulk_data_export_tables');
+			queryRec.addQuery('parent', config.sys_id);
+			queryRec.query();
+		
+		if(queryRec.hasNext()){
+			while(queryRec.next()){
+			 this._recordQuery(queryRec.table.name, config.domain, emails, audit, journal, queryRec.sys_id);
+ 				}
+			}
+	},
+	
+	_recordQuery: function(table, domain, emails, audit, journal, parent){
+			var tab = new GlideRecord(table);
+					tab.addQuery('sys_domain', domain);
+					tab.orderBy('sys_id');
+					//tab.setLimit(10);
+					tab.query();
+				
+ 				if(tab.hasNext()){
+					while(tab.next()){
+						
+						if(emails){
+						var q1 = 'instance='+tab.sys_id+ '^target_table=' +table;
+						this._queryAuditRecord('sys_email', q1, domain, parent, 'email'); // Get email data related to the ticket	
+						}
+						if(audit){
+						var q2 = 'documentkey='+ tab.sys_id;
+						this._queryAuditRecord('sys_audit', q2, domain, parent, 'audit'); // Get audi data related to the ticket	
+						}
+						if(journal){
+						var q3 = 'element_id='+tab.sys_id;
+						this._queryAuditRecord('sys_journal_field', q3, domain, parent, 'journal'); // Get journal data related to the ticket	
+						}
+					}
+					}
+	},
+	
+	_queryAuditRecord: function(table, query, domain, parent, field) {
+		    var child = new GlideRecord(table);
+			child.addEncodedQuery(query);
+			child.orderBy('sys_created_on');
+			child.query();
+
+		if(child.hasNext()){
+		while(child.next()){
+			
+			var gr = new GlideRecord('x_fpuk2_bulk_data_export_records'); //Name of new table
+			gr.initialize();
+			gr[field] = child.sys_id;
+			gr.parent = parent;
+			gr.u_domain = domain; //Name of field created
+			gr.insert();
+		}
+	}
+	},
+	
+    type: 'bulkExportHelper'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-01-03 19:34:03</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6445da51db32a3009a9e17a94b961918</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>bulkExportHelper</sys_name>
+        <sys_package display_value="Bulk Data Export" source="x_fpuk2_bulk_data">45ff8ad9dbbe63009a9e17a94b9619db</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
+        <sys_update_name>sys_script_include_6445da51db32a3009a9e17a94b961918</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-01-03 21:41:33</sys_updated_on>
+    </sys_script_include>
+</record_update>

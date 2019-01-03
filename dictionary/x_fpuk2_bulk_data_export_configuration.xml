@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Export Configuration" max_length="40" name="x_fpuk2_bulk_data_export_configuration" type="collection">
+        <element label="Audit" max_length="40" name="audit" type="boolean"/>
+        <element label="Domain" max_length="32" name="domain" reference="domain" type="reference"/>
+        <element label="Emails" max_length="40" name="emails" type="boolean"/>
+        <element label="From" max_length="40" name="from" type="glide_date_time"/>
+        <element label="Journal entries" max_length="40" name="journal_entries" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Name" max_length="40" name="name" type="string"/>
+        <element label="Owner" max_length="32" name="owner" reference="sys_user" type="reference"/>
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="Tables" max_length="1024" name="tables" reference="sys_db_object" type="glide_list"/>
+        <element label="To" max_length="40" name="to" type="glide_date_time"/>
+        <index name="index">
+            <element name="owner"/>
+        </index>
+        <index name="index2">
+            <element name="domain"/>
+        </index>
+    </element>
+</database>

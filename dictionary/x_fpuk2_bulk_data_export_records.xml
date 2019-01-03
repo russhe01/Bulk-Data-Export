@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Export Records" max_length="40" name="x_fpuk2_bulk_data_export_records" type="collection">
+        <element label="Audit" max_length="32" name="audit" reference="sys_audit" type="reference"/>
+        <element label="Domain" max_length="32" name="domain" reference="domain" type="reference"/>
+        <element label="Email" max_length="32" name="email" reference="sys_email" type="reference"/>
+        <element label="Journal" max_length="32" name="journal" reference="sys_journal_field" type="reference"/>
+        <element label="Parent" max_length="32" name="parent" reference="x_fpuk2_bulk_data_export_tables" type="reference"/>
+        <index name="index">
+            <element name="parent"/>
+        </index>
+        <index name="index2">
+            <element name="journal"/>
+        </index>
+        <index name="index3">
+            <element name="audit"/>
+        </index>
+        <index name="index4">
+            <element name="domain"/>
+        </index>
+        <index name="index5">
+            <element name="email"/>
+        </index>
+    </element>
+</database>
