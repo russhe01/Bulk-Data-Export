@@ -4,62 +4,62 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>table</element>
-            <list_id display_value="x_fpuk2_bulk_data_export_tables" element="NULL" name="x_fpuk2_bulk_data_export_tables" parent="x_fpuk2_bulk_data_export_configuration" relationship="NULL" sys_domain="global" view="Default view">9659ded1db32a3009a9e17a94b9619d5</list_id>
+            <list_id display_value="x_fpuk2_bulk_data_export_tables" element="NULL" name="x_fpuk2_bulk_data_export_tables" parent="x_fpuk2_bulk_data_export_configuration" relationship="NULL" sys_domain="global" view="Default view">5dce9a6ddbf6e700c2db68684b9619ef</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2019-01-03 19:51:12</sys_created_on>
-            <sys_id>5659ded1db32a3009a9e17a94b9619d6</sys_id>
+            <sys_created_on>2019-01-04 14:53:23</sys_created_on>
+            <sys_id>d1ce9a6ddbf6e700c2db68684b9619f0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2019-01-03 19:51:12</sys_updated_on>
+            <sys_updated_on>2019-01-04 14:53:23</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>records_exported</element>
-            <list_id display_value="x_fpuk2_bulk_data_export_tables" element="NULL" name="x_fpuk2_bulk_data_export_tables" parent="x_fpuk2_bulk_data_export_configuration" relationship="NULL" sys_domain="global" view="Default view">9659ded1db32a3009a9e17a94b9619d5</list_id>
+            <element>audit_records_found</element>
+            <list_id display_value="x_fpuk2_bulk_data_export_tables" element="NULL" name="x_fpuk2_bulk_data_export_tables" parent="x_fpuk2_bulk_data_export_configuration" relationship="NULL" sys_domain="global" view="Default view">5dce9a6ddbf6e700c2db68684b9619ef</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2019-01-03 19:51:12</sys_created_on>
-            <sys_id>de59ded1db32a3009a9e17a94b9619d6</sys_id>
+            <sys_created_on>2019-01-04 14:53:23</sys_created_on>
+            <sys_id>55ce9a6ddbf6e700c2db68684b9619f0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2019-01-03 19:51:12</sys_updated_on>
+            <sys_updated_on>2019-01-04 14:53:23</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>records_found</element>
-            <list_id display_value="x_fpuk2_bulk_data_export_tables" element="NULL" name="x_fpuk2_bulk_data_export_tables" parent="x_fpuk2_bulk_data_export_configuration" relationship="NULL" sys_domain="global" view="Default view">9659ded1db32a3009a9e17a94b9619d5</list_id>
+            <element>email_records_found</element>
+            <list_id display_value="x_fpuk2_bulk_data_export_tables" element="NULL" name="x_fpuk2_bulk_data_export_tables" parent="x_fpuk2_bulk_data_export_configuration" relationship="NULL" sys_domain="global" view="Default view">5dce9a6ddbf6e700c2db68684b9619ef</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2019-01-03 19:51:12</sys_created_on>
-            <sys_id>5259ded1db32a3009a9e17a94b9619d7</sys_id>
+            <sys_created_on>2019-01-04 14:53:23</sys_created_on>
+            <sys_id>d5ce9a6ddbf6e700c2db68684b9619f0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2019-01-03 19:51:12</sys_updated_on>
+            <sys_updated_on>2019-01-04 14:53:23</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>state</element>
-            <list_id display_value="x_fpuk2_bulk_data_export_tables" element="NULL" name="x_fpuk2_bulk_data_export_tables" parent="x_fpuk2_bulk_data_export_configuration" relationship="NULL" sys_domain="global" view="Default view">9659ded1db32a3009a9e17a94b9619d5</list_id>
+            <element>journal_records_found</element>
+            <list_id display_value="x_fpuk2_bulk_data_export_tables" element="NULL" name="x_fpuk2_bulk_data_export_tables" parent="x_fpuk2_bulk_data_export_configuration" relationship="NULL" sys_domain="global" view="Default view">5dce9a6ddbf6e700c2db68684b9619ef</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2019-01-03 19:51:12</sys_created_on>
-            <sys_id>d259ded1db32a3009a9e17a94b9619d7</sys_id>
+            <sys_created_on>2019-01-04 14:53:23</sys_created_on>
+            <sys_id>59ce9a6ddbf6e700c2db68684b9619f0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2019-01-03 19:51:12</sys_updated_on>
+            <sys_updated_on>2019-01-04 14:53:23</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -73,12 +73,12 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2019-01-03 19:51:12</sys_created_on>
+            <sys_created_on>2019-01-04 14:53:23</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_domain_number/>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>9659ded1db32a3009a9e17a94b9619d5</sys_id>
+            <sys_id>5dce9a6ddbf6e700c2db68684b9619ef</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_fpuk2_bulk_data_export_tables</sys_name>
             <sys_overrides display_value="global" element="NULL" name="global" parent="NULL" relationship="NULL" sys_domain="fd28cd5b75a9300059d12558da4f6672" view="Default view">01863e76404a250050b7b540c6465483</sys_overrides>
@@ -88,7 +88,7 @@
             <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
             <sys_update_name>sys_ui_list_x_fpuk2_bulk_data_export_tables_x_fpuk2_bulk_data_export_configuration_null</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2019-01-03 19:51:12</sys_updated_on>
+            <sys_updated_on>2019-01-04 14:53:23</sys_updated_on>
             <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>

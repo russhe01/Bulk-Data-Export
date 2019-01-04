@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_fpuk2_bulk_data.ExportTables</api_name>
+        <client_callable>false</client_callable>
+        <description>Export data from encoded table queries into an Update Set format that can be loaded into another ServiceNow instance. Exporting with History Set and History Line data</description>
+        <name>ExportTables</name>
+        <script><![CDATA[var ExportTables = Class.create();
+ExportTables.prototype = Object.extend( new ExportWithRelatedLists(), {
+    initialize: function() {
+        this.filename = "";
+    },
+    
+    addTable: function(tableName, query, field){
+        var obj = {};
+        obj.tableName = tableName;
+		obj.encodedQuery = query;
+		obj.field = field;
+        this.table = obj;
+    },
+    
+    exportAll: function(response){
+        this.setHeaders(response);
+        var outputStream = response.getOutputStream();
+        this.hd = this.beginExport(outputStream);
+  
+        this._exportTable(this.table);
+
+        this.endExport(outputStream);
+    },
+    
+    _exportTable: function(tableObj){
+        var tab = new GlideRecord('x_fpuk2_bulk_data_export_records');
+			tab.addEncodedQuery(tableObj.encodedQuery);
+		//	tab.setLimit(100);
+			tab.query();
+		
+		if(tab.hasNext()){
+			while(tab.next()){
+			//Run function to get and export the record
+			this.exportRecord(tab[tableObj.field].getRefRecord());
+		 //   this.setAttachments(true);
+        }
+	}
+    },
+
+    
+    getFileName: function(){
+        if(this.filename==""){
+            return ("exported_results.xml");
+        }
+        return this.filename;
+    },
+    
+    setFileName: function( fn ){
+        this.filename = fn+".xml";
+    },
+    
+    type: 'ExportTables'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-01-04 16:34:53</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0cf53ea5dbfae700c2db68684b9619c2</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>ExportTables</sys_name>
+        <sys_package display_value="Bulk Data Export" source="x_fpuk2_bulk_data">45ff8ad9dbbe63009a9e17a94b9619db</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
+        <sys_update_name>sys_script_include_0cf53ea5dbfae700c2db68684b9619c2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-01-04 17:17:00</sys_updated_on>
+    </sys_script_include>
+</record_update>

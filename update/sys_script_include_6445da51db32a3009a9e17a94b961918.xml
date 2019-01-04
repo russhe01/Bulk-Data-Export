@@ -42,14 +42,26 @@ bulkExportHelper.prototype = {
 		
 		if(queryRec.hasNext()){
 			while(queryRec.next()){
-			 this._recordQuery(queryRec.table.name, config.domain, emails, audit, journal, queryRec.sys_id);
+				this.exportTable = queryRec;
+				this._recordQuery(queryRec.table.name, config.domain, emails, audit, journal, queryRec.sys_id, config.from, config.to);
  				}
 			}
 	},
 	
-	_recordQuery: function(table, domain, emails, audit, journal, parent){
+	_recordQuery: function(table, domain, emails, audit, journal, parent, from, to){
+		
 			var tab = new GlideRecord(table);
 					tab.addQuery('sys_domain', domain);
+		if(from && !to){
+					tab.addQuery('sys_created_on', '>', from).addOrCondition('sys_updated_on', '>', from);	
+		}
+		if(to && !from){
+					tab.addQuery('sys_created_on', '<', to).addOrCondition('sys_updated_on', '<', to);
+		}
+		if(from && to){
+					tab.addQuery('sys_created_on', '>', from).addOrCondition('sys_updated_on', '>', from);
+					tab.addQuery('sys_created_on', '<', to).addOrCondition('sys_updated_on', '<', to);
+		}
 					tab.orderBy('sys_id');
 					//tab.setLimit(10);
 					tab.query();
@@ -70,6 +82,7 @@ bulkExportHelper.prototype = {
 						this._queryAuditRecord('sys_journal_field', q3, domain, parent, 'journal'); // Get journal data related to the ticket	
 						}
 					}
+					this._recordCount(parent, ['email', 'audit', 'journal']);
 					}
 	},
 	
@@ -92,6 +105,61 @@ bulkExportHelper.prototype = {
 	}
 	},
 	
+	
+	_recordCount: function(parent, fieldArray){
+	
+		for(var i = 0; i < fieldArray.length; i++){
+				var count = new GlideAggregate('x_fpuk2_bulk_data_export_records');
+					count.addQuery('parent', parent);
+					count.addQuery(fieldArray[i], '!=', '');
+					count.addAggregate('COUNT');
+					count.query();
+			
+			var records = 0;
+			
+			if(count.next()){
+				records = count.getAggregate('COUNT');
+				var value;
+				if(fieldArray[i] === 'audit'){
+					value = 'audit_records_found';
+				}
+				if(fieldArray[i] === 'journal'){
+					value = 'journal_records_found';
+				}
+				if(fieldArray[i] === 'email'){
+					value = 'email_records_found';
+				}
+				this.exportTable[value] = records;
+				this.exportTable.update();
+			}
+		}
+	},
+	
+	
+	exportRecords: function(record){
+		var url;
+		var gr1 = new GlideRecord('x_fpuk2_bulk_data_export_tables');
+			gr1.addQuery('parent', record.sys_id);
+			gr1.query();
+		
+		if(gr1.hasNext()){
+			while(gr1.next()){
+				if(record.audit){
+					url = 'https://' + gs.getProperty('instance_name') + '.service-now.com/export_table_data.do?filename=' + gr1.display_name + '_audit' + '&table=query|field';
+					gs.setRedirect(url);
+				}
+				if(record.email){
+					url = 'https://' + gs.getProperty('instance_name') + '.service-now.com/export_table_data.do?filename=' + gr1.display_name + '_email';
+					gs.setRedirect(url);
+				}
+				if(record.journal){
+					url = 'https://' + gs.getProperty('instance_name') + '.service-now.com/export_table_data.do?filename=' + gr1.display_name + '_journal';
+					gs.setRedirect(url);
+				}
+			
+			}
+		}
+	},
     type: 'bulkExportHelper'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
@@ -99,7 +167,7 @@ bulkExportHelper.prototype = {
         <sys_created_on>2019-01-03 19:34:03</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>6445da51db32a3009a9e17a94b961918</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>bulkExportHelper</sys_name>
         <sys_package display_value="Bulk Data Export" source="x_fpuk2_bulk_data">45ff8ad9dbbe63009a9e17a94b9619db</sys_package>
         <sys_policy>read</sys_policy>
@@ -107,6 +175,6 @@ bulkExportHelper.prototype = {
         <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
         <sys_update_name>sys_script_include_6445da51db32a3009a9e17a94b961918</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-01-03 21:41:33</sys_updated_on>
+        <sys_updated_on>2019-01-04 17:18:58</sys_updated_on>
     </sys_script_include>
 </record_update>

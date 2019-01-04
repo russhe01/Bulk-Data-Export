@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_processor">
+    <sys_processor action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <description>Export data in Update Set format and download the file&#13;
+Usage:  &#13;
+   filename -- this is the desired output file name&#13;
+   table|query|field - Records to obtain&#13;
+Example:&#13;
+   export_table_data.do?filename=MyOutputFile&amp;table=sys_audit|query|field</description>
+        <interactive>false</interactive>
+        <name>Export Table Data</name>
+        <parameters/>
+        <params_endpoint/>
+        <path>export_table_data</path>
+        <path_endpoint>x_fpuk2_bulk_data_export_table_data</path_endpoint>
+        <require_csrf>false</require_csrf>
+        <roles/>
+        <script><![CDATA[var filename = g_request.getParameter("filename") + "_" +gs.now();
+var tables = g_request.getParameter("tables");
+
+
+if(gs.hasRole("admin")){
+    
+	var files = newx_fpuk2_bulk_data.ExportTables();
+   
+		files.setFileName(filename);
+		  
+		var tableSplit = tables.split('|');
+	    var table = tableSplit[0];
+		var query = tableSplit[1];
+	
+        files.addTable(table, query, field);
+    
+		files.exportAll(g_response);
+} 
+else {
+    g_processor.writeOutput("ERROR: Insufficient Rights to Perform this Operation");
+}]]></script>
+        <sys_class_name>sys_processor</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-01-04 16:33:18</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>9375f6a1dbfae700c2db68684b961983</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Export Table Data</sys_name>
+        <sys_package display_value="Bulk Data Export" source="x_fpuk2_bulk_data">45ff8ad9dbbe63009a9e17a94b9619db</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
+        <sys_update_name>sys_processor_9375f6a1dbfae700c2db68684b961983</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-01-04 17:17:18</sys_updated_on>
+        <type>script</type>
+    </sys_processor>
+</record_update>
