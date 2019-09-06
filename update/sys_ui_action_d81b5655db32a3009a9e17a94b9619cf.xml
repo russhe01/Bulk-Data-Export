@@ -1,17 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update sys_domain="global" table="sys_ui_action">
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
     <sys_ui_action action="INSERT_OR_UPDATE">
         <action_name/>
         <active>true</active>
         <client>false</client>
+        <client_script_v2/>
         <comments/>
         <condition/>
         <form_action>true</form_action>
         <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
         <form_context_menu>false</form_context_menu>
         <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
         <form_style/>
         <hint/>
+        <isolate_script>false</isolate_script>
         <list_action>false</list_action>
         <list_banner_button>false</list_banner_button>
         <list_button>false</list_button>
@@ -33,9 +36,7 @@ action.setRedirectURL(current);
         <sys_class_name>sys_ui_action</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-01-03 20:05:15</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
-        <sys_domain_number/>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>d81b5655db32a3009a9e17a94b9619cf</sys_id>
         <sys_mod_count>2</sys_mod_count>
@@ -43,7 +44,6 @@ action.setRedirectURL(current);
         <sys_overrides/>
         <sys_package display_value="Bulk Data Export" source="x_fpuk2_bulk_data">45ff8ad9dbbe63009a9e17a94b9619db</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
         <sys_update_name>sys_ui_action_d81b5655db32a3009a9e17a94b9619cf</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>

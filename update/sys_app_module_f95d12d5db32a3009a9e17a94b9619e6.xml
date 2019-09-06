@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update sys_domain="global" table="sys_app_module">
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
     <sys_app_module action="INSERT_OR_UPDATE">
         <active>true</active>
         <application display_value="FRU - Bulk Data Export">2253dedddbfe63009a9e17a94b961973</application>
@@ -20,14 +19,10 @@
         <query/>
         <report/>
         <roles>x_fpuk2_bulk_data.export_records_user</roles>
-        <survey display_value="">active=true^sys_domain=javascrip</survey>
-        <survey_overwrite>true</survey_overwrite>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-01-03 20:08:39</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
-        <sys_domain_number/>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f95d12d5db32a3009a9e17a94b9619e6</sys_id>
         <sys_mod_count>2</sys_mod_count>
@@ -35,7 +30,6 @@
         <sys_overrides/>
         <sys_package display_value="Bulk Data Export" source="x_fpuk2_bulk_data">45ff8ad9dbbe63009a9e17a94b9619db</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
         <sys_update_name>sys_app_module_f95d12d5db32a3009a9e17a94b9619e6</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>

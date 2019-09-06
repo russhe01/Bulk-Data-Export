@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_script_include">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>package_private</access>
         <active>true</active>
@@ -31,7 +30,7 @@ bulkExportHelper.prototype = {
 	},
 	
 	queryRecords: function(config) {
-		
+
 		var emails = config.emails;
 		var audit = config.audit;
 		var journal = config.journal_entries;
@@ -42,6 +41,7 @@ bulkExportHelper.prototype = {
 		
 		if(queryRec.hasNext()){
 			while(queryRec.next()){
+		
 				this.exportTable = queryRec;
 				this._recordQuery(queryRec.table.name, config.domain, emails, audit, journal, queryRec.sys_id, config.from, config.to);
  				}
@@ -51,7 +51,7 @@ bulkExportHelper.prototype = {
 	_recordQuery: function(table, domain, emails, audit, journal, parent, from, to){
 		
 			var tab = new GlideRecord(table);
-					tab.addQuery('sys_domain', domain);
+				//	tab.addQuery('sys_domain', domain); //Add domain if needed
 		if(from && !to){
 					tab.addQuery('sys_created_on', '>', from).addOrCondition('sys_updated_on', '>', from);	
 		}
@@ -68,7 +68,7 @@ bulkExportHelper.prototype = {
 				
  				if(tab.hasNext()){
 					while(tab.next()){
-						
+						gs.info("russ");
 						if(emails){
 						var q1 = 'instance='+tab.sys_id+ '^target_table=' +table;
 						this._queryAuditRecord('sys_email', q1, domain, parent, 'email'); // Get email data related to the ticket	
@@ -165,16 +165,14 @@ bulkExportHelper.prototype = {
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-01-03 19:34:03</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_id>6445da51db32a3009a9e17a94b961918</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>41</sys_mod_count>
         <sys_name>bulkExportHelper</sys_name>
         <sys_package display_value="Bulk Data Export" source="x_fpuk2_bulk_data">45ff8ad9dbbe63009a9e17a94b9619db</sys_package>
         <sys_policy>read</sys_policy>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
         <sys_update_name>sys_script_include_6445da51db32a3009a9e17a94b961918</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-01-04 17:18:58</sys_updated_on>
+        <sys_updated_on>2019-09-06 10:40:50</sys_updated_on>
     </sys_script_include>
 </record_update>

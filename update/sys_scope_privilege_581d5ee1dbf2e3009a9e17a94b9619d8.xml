@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_scope_privilege">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
     <sys_scope_privilege action="INSERT_OR_UPDATE">
         <operation>execute</operation>
         <source_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</source_scope>
@@ -7,13 +6,11 @@
         <sys_class_name>sys_scope_privilege</sys_class_name>
         <sys_created_by>system</sys_created_by>
         <sys_created_on>2019-01-04 14:45:56</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_id>581d5ee1dbf2e3009a9e17a94b9619d8</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>GlideRecord.update</sys_name>
         <sys_package display_value="Bulk Data Export" source="x_fpuk2_bulk_data">45ff8ad9dbbe63009a9e17a94b9619db</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
         <sys_update_name>sys_scope_privilege_581d5ee1dbf2e3009a9e17a94b9619d8</sys_update_name>
         <sys_updated_by>system</sys_updated_by>

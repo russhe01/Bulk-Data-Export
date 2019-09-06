@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<record_update table="sys_script_include">
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
         <active>true</active>
@@ -63,13 +62,11 @@ ExportTables.prototype = Object.extend( new ExportWithRelatedLists(), {
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2019-01-04 16:34:53</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_id>0cf53ea5dbfae700c2db68684b9619c2</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>ExportTables</sys_name>
         <sys_package display_value="Bulk Data Export" source="x_fpuk2_bulk_data">45ff8ad9dbbe63009a9e17a94b9619db</sys_package>
         <sys_policy>read</sys_policy>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Bulk Data Export">45ff8ad9dbbe63009a9e17a94b9619db</sys_scope>
         <sys_update_name>sys_script_include_0cf53ea5dbfae700c2db68684b9619c2</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>

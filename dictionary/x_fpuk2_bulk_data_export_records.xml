@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Export Records" max_length="40" name="x_fpuk2_bulk_data_export_records" type="collection">
         <element label="Audit" max_length="32" name="audit" reference="sys_audit" type="reference"/>
         <element label="Domain" max_length="32" name="domain" reference="domain" type="reference"/>
